@@ -1,9 +1,9 @@
 ---
-import '@fontsource-variable/fredoka';
 import '@/styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import Nav from '@/components/Nav.astro';
 import Paw from '@/components/Paw.astro';
+import { Font } from 'astro:assets';
 
 interface Props {
 	title?: string;
@@ -42,6 +42,7 @@ const paws = [
 		/>
 		<title>{title}</title>
 		<ClientRouter />
+		<Font cssVariable="--fredoka" preload/>
 	</head>
 	<body class="text-cocoa relative min-h-screen">
 		<!-- Paw prints -->

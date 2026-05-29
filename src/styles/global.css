@@ -12,7 +12,7 @@
 	--color-cocoa: oklch(0.35 0.05 30);
 	--color-cocoa-light: oklch(0.5 0.04 30);
 
-	--font-fredoka: 'Fredoka Variable', sans-serif;
+	--font-fredoka: var(--fredoka);
 }
 
 @layer base {
