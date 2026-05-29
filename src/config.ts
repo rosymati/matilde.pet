@@ -9,8 +9,8 @@ export type AccentColor = 'peach' | 'lavender' | 'pink';
 export const contacts = {
 	github: {
 		name: 'GitHub',
-		handle: '@puppymati',
-		href: 'https://github.com/puppymati',
+		handle: '@rosymati',
+		href: 'https://github.com/rosymati',
 		color: 'peach' as AccentColor,
 	},
 	bluesky: {
@@ -33,8 +33,8 @@ export const contacts = {
 	},
 	twitter: {
 		name: 'Twitter',
-		handle: '@puppymati',
-		href: 'https://x.com/puppymati',
+		handle: '@_rosymati',
+		href: 'https://x.com/_rosymati',
 		color: 'peach' as AccentColor,
 	},
 	email: {
