@@ -101,7 +101,7 @@ export const projects = [
 		name: 'podzol',
 		description: 'A modern package manager for Minecraft modpacks.',
 		tags: ['Rust', 'Minecraft', 'CLI'],
-		href: 'https://github.com/puppymati/podzol',
+		href: 'https://github.com/rosymati/podzol',
 		color: 'lavender' as AccentColor,
 	},
 ];
