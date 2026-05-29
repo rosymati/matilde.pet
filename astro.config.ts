@@ -1,5 +1,5 @@
 import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
+import { defineConfig, svgoOptimizer } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
@@ -9,6 +9,6 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	experimental: {
-		svgo: true,
+		svgOptimizer: svgoOptimizer({ multipass: true }),
 	},
 });
