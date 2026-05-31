@@ -107,12 +107,12 @@ export const projects = [
 ];
 
 export const rings = [
-	{
-		name: 'nix webring',
-		member: 'matilde',
-		base: 'https://nixwebr.ing',
-		random: true,
-	},
+	// {
+	// 	name: 'nix webring',
+	// 	member: 'matilde',
+	// 	base: 'https://nixwebr.ing',
+	// 	random: true,
+	// },
 	// {
 	// 	name: "pet webring",
 	// 	member: "matilde",
