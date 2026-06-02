@@ -113,10 +113,10 @@ export const rings = [
 	// 	base: 'https://nixwebr.ing',
 	// 	random: true,
 	// },
-	// {
-	// 	name: "pet webring",
-	// 	member: "matilde",
-	// 	base: "https://example.com",
-	// 	random: true,
-	// },
+	{
+		name: 'pet webring',
+		member: 'matilde.pet',
+		base: 'https://petwebr.ing',
+		random: true,
+	},
 ];

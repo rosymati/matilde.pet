@@ -1,9 +1,9 @@
 ---
 import Base from '@/layouts/Base.astro';
-// import WebRing from '@/components/WebRing.astro';
 import IconGithub from '@/assets/icons/github.svg';
 import IconEmail from '@/assets/icons/email.svg';
-import { contacts } from '@/config';
+import { contacts, rings } from '@/config';
+import WebRing from '@/components/WebRing.astro';
 ---
 
 <Base
@@ -50,5 +50,5 @@ import { contacts } from '@/config';
 			</div>
 		</div>
 	</div>
-	<!-- <WebRing rings={rings} /> -->
+	<WebRing rings={rings} />
 </Base>
