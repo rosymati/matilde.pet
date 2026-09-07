@@ -1,10 +1,10 @@
 ---
-import Base from '@/layouts/Base.astro';
+import Page from '@/layouts/Page.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Comments from '@/components/Comments.astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import IconChevronLeft from '@/assets/icons/chevron-left.svg';
 import { formatDate } from '@/utils';
-import Comments from '@/components/Comments.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -22,40 +22,27 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Base
-	title={`${post.data.title} · Matilde`}
-	description={post.data.description}
->
-	<article class="mx-auto min-h-screen max-w-3xl px-6 pt-24 pb-16">
-		<div>
-			<a
-				href="/blog"
-				class="text-cocoa-light hover:text-peach mb-8 inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
+<Page title={post.data.title} description={post.data.description}>
+	<article class="mx-auto max-w-176">
+		<PageHeader
+			title={post.data.title}
+			backHref="/blog"
+			backLabel="back to notes"
+		>
+			<time
+				datetime={post.data.pubDate.toISOString()}
+				class="text-muted mb-5 block text-xs"
 			>
-				<IconChevronLeft aria-hidden="true" class="h-4 w-4" />
-				back to blog
-			</a>
-
-			<header class="mb-8">
-				<time
-					datetime={post.data.pubDate.toISOString()}
-					class="text-cocoa-light mb-2 block text-sm font-medium"
-				>
-					{formatDate(post.data.pubDate)}
-				</time>
-				<h1 class="text-3xl leading-tight font-bold sm:text-4xl">
-					{post.data.title}
-				</h1>
-			</header>
-
-			<div class="prose max-w-3xl">
-				<Content />
-			</div>
+				{formatDate(post.data.pubDate)}
+			</time>
+		</PageHeader>
+		<div
+			class="prose prose-headings:font-instrument prose-headings:font-normal prose-headings:tracking-tight prose-a:decoration-pigment/40 hover:prose-a:decoration-pigment prose-blockquote:font-instrument prose-blockquote:text-2xl prose-pre:rounded-none prose-pre:border-y prose-pre:border-rule prose-pre:p-5 prose-pre:text-sm prose-pre:leading-relaxed prose-pre:focus-visible:outline-pigment prose-img:mx-auto max-w-none wrap-break-word"
+		>
+			<Content />
 		</div>
-
-		<!-- Separator before comments -->
-		<div class="my-12"></div>
-
-		<Comments />
+		<section class="border-rule mt-16 border-t pt-8" aria-label="Comments">
+			<Comments />
+		</section>
 	</article>
-</Base>
+</Page>

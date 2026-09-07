@@ -1,0 +1,23 @@
+---
+interface Props {
+	title: string;
+	id?: string;
+	class?: string;
+}
+
+const {
+	title,
+	id,
+	class: className = 'text-[clamp(56px,8vw,104px)] leading-[1.05]',
+} = Astro.props;
+---
+
+<h1
+	id={id}
+	class:list={[
+		'font-instrument text-pigment font-normal tracking-[-0.057em] text-shadow-[0.6px_0.8px_0_#921d3233,-0.8px_0_1.5px_#921d321a]',
+		className,
+	]}
+>
+	{title}<span class="text-ink">.</span>
+</h1>

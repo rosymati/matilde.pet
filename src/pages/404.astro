@@ -1,22 +1,8 @@
 ---
-import Base from '@/layouts/Base.astro';
+import Page from '@/layouts/Page.astro';
+import PageHeader from '@/components/PageHeader.astro';
 ---
 
-<Base title="Not Found · Matilde">
-	<div
-		class="flex min-h-screen flex-col items-center justify-center px-6 text-center"
-	>
-		<div>
-			<h1 class="text-peach/40 mb-4 text-8xl font-bold">404</h1>
-			<p class="text-cocoa-light text-lg">
-				This page wandered off somewhere...
-			</p>
-			<a
-				href="/"
-				class="text-cocoa-light hover:text-peach mt-6 inline-block text-sm font-medium transition-colors"
-			>
-				back home
-			</a>
-		</div>
-	</div>
-</Base>
+<Page title="Not Found" description="This page wandered off somewhere.">
+	<PageHeader title="404" subtitle="this page wandered off somewhere…" />
+</Page>

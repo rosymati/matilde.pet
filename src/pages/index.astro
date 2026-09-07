@@ -1,54 +1,75 @@
 ---
 import Base from '@/layouts/Base.astro';
-import IconGithub from '@/assets/icons/github.svg';
-import IconEmail from '@/assets/icons/email.svg';
-import { contacts, rings } from '@/config';
-import WebRing from '@/components/WebRing.astro';
+import Title from '@/components/Title.astro';
+import rose from '@/assets/rosymati/rose-ink.webp';
+import smallRose from '@/assets/rosymati/rose-ink-small.webp';
+import bleed from '@/assets/rosymati/rose-bleed.webp';
+const roseSrcset = `${smallRose.src} ${smallRose.width}w, ${rose.src} ${rose.width}w`;
 ---
 
 <Base
 	description="Systems programmer based in Europe, mostly writing Rust and occasionally messing with Gleam."
 >
-	<div
-		class="flex min-h-screen flex-col items-center justify-center px-6 pt-16 pb-12"
-	>
-		<div class="max-w-md text-center">
-			<h1 class="mb-3 text-7xl font-bold tracking-tight sm:text-8xl">
-				Matilde
-			</h1>
-			<p class="text-cocoa-light mb-6 text-lg font-medium">
-				foss enthusiast · rust lover · gleam fanatic
+	<section class="relative isolate mx-auto min-h-svh max-w-312 overflow-y-clip">
+		<div class="relative w-[65%] py-[25%]">
+			<p
+				class="font-instrument text-pigment tablet:text-[24px] mobile:ml-0.5 ml-1.25 text-[28px] leading-[1.3] italic"
+			>
+				Hi, I'm
 			</p>
-			<p class="text-cocoa/80 mb-8 leading-relaxed">
-				I'm a systems programmer based in Europe, mostly writing Rust and
-				occasionally messing with Gleam. I like re-building things from the
-				ground up, hopefully to make them better.
-			</p>
-			<div class="flex flex-wrap items-center justify-center gap-3">
-				<a
-					href={contacts.github.href}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="bg-peach/15 hover:bg-peach/25 border-peach/20 flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all hover:scale-105"
+			<Title
+				title="Matilde"
+				id="hero-title"
+				class="mt-2 mb-6.25 -ml-2.25 text-[clamp(124px,15.3vw,220px)] leading-[0.95]"
+			/>
+			<!-- <p
+							class="font-instrument tablet:max-w-[280px] tablet:text-[32px] mobile:mt-6 mobile:max-w-none narrow:text-[28px] mt-[38px] text-[clamp(30px,3.05vw,44px)] leading-[1.2] tracking-[-0.02em]"
+						>
+							Deep roots. <em class="text-pigment tablet:block mobile:inline"
+								>Open source.</em
+							>
+						</p> -->
+			<!-- <p
+							class="text-copy compact:max-w-[310px] tablet:max-w-[255px] tablet:text-[13px] mobile:mt-[18px] mobile:max-w-[345px] mt-[22px] max-w-[348px] text-[14px] leading-[1.9]"
+						>
+							Hi, I'm Matilde. I write systems, grow ideas, and like to build
+							things from the ground up. Mostly in Rust, sometimes in Gleam.
+						</p> -->
+			<div class="mt-8.5 flex flex-wrap items-center gap-7">
+				<a class="hover:text-pigment py-3 hover:underline" href="/about"
+					>about</a
 				>
-					<IconGithub aria-hidden="true" class="h-4 w-4" />
-					github
-				</a>
-				<a
-					href={contacts.email.href}
-					class="bg-lavender/15 hover:bg-lavender/25 border-lavender/20 flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all hover:scale-105"
+				<a class="hover:text-pigment py-3 hover:underline" href="/projects"
+					>work</a
 				>
-					<IconEmail aria-hidden="true" class="h-4 w-4" />
-					email
-				</a>
-				<a
-					href="/contacts"
-					class="text-cocoa-light hover:text-peach text-sm font-medium transition-colors"
+				<a class="hover:text-pigment py-3 hover:underline" href="/blog">notes</a
 				>
-					all contacts &rarr;
+				<a class="text-pigment py-3 hover:underline" href="/contacts">
+					say hello <span class="ml-1.75" aria-hidden="true">↗</span>
 				</a>
 			</div>
 		</div>
-	</div>
-	<WebRing rings={rings} />
+
+		<figure
+			class="pointer-events-none absolute top-3 -right-14.25 z-1 w-165 rotate-7"
+		>
+			<img
+				class="absolute inset-0 w-full max-w-none -translate-x-4 translate-y-3 scale-[1.045] mask-[linear-gradient(#000_45%,transparent_86%)] opacity-42 mix-blend-multiply"
+				src={bleed.src}
+				width={bleed.width}
+				height={bleed.height}
+				aria-hidden="true"
+			/>
+			<img
+				class="relative w-full mask-[linear-gradient(#000_89%,transparent_99%)] mix-blend-multiply"
+				src={rose.src}
+				srcset={roseSrcset}
+				width={rose.width}
+				height={rose.height}
+				sizes="(max-width: 430px) 100vw, (max-width: 700px) 430px, (max-width: 800px) 490px, (max-width: 1100px) 590px, 660px"
+				loading="eager"
+				fetchpriority="high"
+			/>
+		</figure>
+	</section>
 </Base>

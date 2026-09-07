@@ -3,14 +3,25 @@ import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-	site: 'https://matilde.pet',
+	site: 'https://rosymati.com',
 	integrations: [sitemap()],
+	markdown: {
+		shikiConfig: {
+			theme: 'css-variables',
+		},
+	},
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),
-			name: 'Fredoka',
-			cssVariable: '--fredoka',
-			weights: ['500 600 700'],
+			name: 'DM Sans',
+			cssVariable: '--dm-sans',
+			weights: ['400 500 600 700'],
+		},
+		{
+			provider: fontProviders.fontsource(),
+			name: ' Instrument Serif ',
+			cssVariable: '--instrument',
+			weights: ['400 500 600 700'],
 		},
 	],
 	vite: {

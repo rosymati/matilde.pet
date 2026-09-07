@@ -1,63 +1,36 @@
 ---
-import PawPrint from '@/assets/icons/paw-print.svg';
-
-const currentPath = Astro.url.pathname;
-
 const links = [
-	{ href: '/', label: 'home', icon: true, match: (p: string) => p === '/' },
-	{
-		href: '/blog',
-		label: 'blog',
-		match: (p: string) => p === '/blog' || p.startsWith('/blog/'),
-	},
-	{
-		href: '/projects',
-		label: 'projects',
-		match: (p: string) => p === '/projects' || p.startsWith('/projects/'),
-	},
-	{
-		href: '/contacts',
-		label: 'contacts',
-		match: (p: string) => p === '/contacts' || p.startsWith('/contacts/'),
-	},
+	{ href: '/projects', label: 'work' },
+	{ href: '/blog', label: 'notes' },
+	{ href: '/contacts', label: 'say hello' },
 ];
+const path = Astro.url.pathname.replace(/\/$/, '');
 ---
 
-<nav class="fixed inset-x-0 top-5 z-50 flex justify-center">
-	<div
-		class="border-peach/15 bg-cream/60 flex items-center rounded-full border p-1.5 shadow-sm backdrop-blur-md"
+<nav
+	class="border-rule flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-b py-6"
+	aria-label="Main navigation"
+>
+	<a
+		class="font-instrument text-pigment text-4xl leading-none tracking-[-0.057em]"
+		href="/"
+		aria-label="Matilde, home">Matilde<span class="text-ink">.</span></a
 	>
+	<div class="flex flex-wrap items-center gap-6 sm:gap-8">
 		{
-			links.map((link) => {
-				const isActive = link.match(currentPath);
-				return (
-					<a
-						href={link.href}
-						aria-current={isActive ? 'page' : undefined}
-						class:list={[
-							'relative flex h-8 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors',
-							isActive ? 'text-cocoa' : 'text-cocoa-light hover:text-cocoa',
-						]}
-					>
-						{isActive && (
-							<span class="nav-indicator bg-peach/20 absolute inset-0 rounded-full" />
-						)}
-						{link.icon && (
-							<PawPrint
-								aria-hidden="true"
-								class="fill-peach relative h-3.5 w-3.5"
-							/>
-						)}
-						<span class="relative">{link.label}</span>
-					</a>
-				);
-			})
+			links.map(({ href, label }) => (
+				<a
+					href={href}
+					aria-current={path === href ? 'page' : undefined}
+					class:list={[
+						'hover:text-pigment py-3 hover:underline',
+						(path === href || path.startsWith(`${href}/`)) &&
+							'text-pigment underline',
+					]}
+				>
+					{label}
+				</a>
+			))
 		}
 	</div>
 </nav>
-
-<style>
-	.nav-indicator {
-		view-transition-name: nav-indicator;
-	}
-</style>

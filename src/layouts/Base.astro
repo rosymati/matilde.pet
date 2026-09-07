@@ -1,8 +1,6 @@
 ---
 import '@/styles/global.css';
 import { ClientRouter } from 'astro:transitions';
-import Nav from '@/components/Nav.astro';
-import Paw from '@/components/Paw.astro';
 import { Font } from 'astro:assets';
 
 interface Props {
@@ -11,20 +9,6 @@ interface Props {
 }
 
 const { title = 'Matilde', description } = Astro.props;
-
-const paws = [
-	{ top: '8%', left: '12%', size: '50px', rotate: '-25deg' },
-	{ top: '18%', left: '20%', size: '42px', rotate: '18deg' },
-	{ top: '28%', left: '28%', size: '46px', rotate: '-12deg' },
-	{ top: '10%', right: '18%', size: '48px', rotate: '30deg' },
-	{ top: '25%', right: '12%', size: '44px', rotate: '-28deg' },
-	{ bottom: '20%', left: '14%', size: '46px', rotate: '16deg' },
-	{ bottom: '12%', left: '24%', size: '48px', rotate: '-18deg' },
-	{ bottom: '28%', right: '16%', size: '42px', rotate: '22deg' },
-	{ bottom: '15%', right: '10%', size: '50px', rotate: '-32deg' },
-	{ top: '48%', left: '6%', size: '40px', rotate: '35deg' },
-	{ top: '58%', right: '8%', size: '45px', rotate: '-38deg' },
-];
 ---
 
 <!doctype html>
@@ -33,7 +17,7 @@ const paws = [
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		{description && <meta name="description" content={description} />}
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<link
 			rel="alternate"
 			type="application/rss+xml"
@@ -42,37 +26,22 @@ const paws = [
 		/>
 		<title>{title}</title>
 		<ClientRouter />
-		<Font cssVariable="--fredoka" preload />
+		<Font cssVariable="--instrument" preload />
+		<Font cssVariable="--dm-sans" preload />
 	</head>
-	<body class="text-cocoa relative min-h-screen">
-		<!-- Paw prints -->
-		{paws.map((paw) => <Paw {...paw} />)}
-
-		<!-- Background gradients -->
-		<div aria-hidden="true" class="fixed inset-0 -z-10">
-			<!-- Radial gradient overlays -->
-			<div
-				class="from-lavender/30 absolute inset-0 bg-radial-[at_20%_50%] to-transparent to-50%"
-			>
-			</div>
-			<div
-				class="from-peach/30 absolute inset-0 bg-radial-[at_80%_80%] to-transparent to-50%"
-			>
-			</div>
-			<div
-				class="from-pink/20 absolute inset-0 bg-radial-[at_40%_20%] to-transparent to-50%"
-			>
-			</div>
-			<!-- Base gradient -->
-			<div
-				class="from-cream via-peach-light to-lavender-light absolute inset-0 bg-linear-[135deg]"
-			>
-			</div>
+	<body
+		class="selection:bg-pigment selection:text-paper [&_a:focus-visible]:outline-pigment relative min-h-svh [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-4"
+	>
+		<a
+			class="bg-pigment text-paper fixed top-3 left-3 z-20 translate-y-[-160%] px-5 py-3 focus:translate-y-0"
+			href="#content">Skip to content</a
+		>
+		<div
+			class="bg-paper-grain pointer-events-none absolute inset-0 z-10 bg-size-[192px_512px] bg-repeat opacity-50 mix-blend-multiply"
+			aria-hidden="true"
+		>
 		</div>
-
-		<Nav />
-
-		<main class="font-fredoka min-h-screen w-full">
+		<main id="content" tabindex="-1">
 			<slot />
 		</main>
 	</body>

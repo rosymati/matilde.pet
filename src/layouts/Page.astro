@@ -1,0 +1,18 @@
+---
+import Base from '@/layouts/Base.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Base title={`${title} · Matilde`} description={description}>
+	<div class="px-6 pb-20 sm:px-12">
+		<div class="mx-auto max-w-240 pt-16">
+			<slot />
+		</div>
+	</div>
+</Base>

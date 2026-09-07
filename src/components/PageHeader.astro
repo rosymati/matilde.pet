@@ -1,13 +1,33 @@
 ---
+import Title from '@/components/Title.astro';
+
 interface Props {
 	title: string;
-	subtitle: string;
+	subtitle?: string;
+	backHref?: string;
+	backLabel?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const {
+	title,
+	subtitle,
+	backHref = '/',
+	backLabel = 'back home',
+} = Astro.props;
 ---
 
-<div class="mb-10">
-	<h1 class="mb-2 text-4xl font-bold">{title}</h1>
-	<p class="text-cocoa-light">{subtitle}</p>
-</div>
+<a class="text-pigment mb-8 inline-block py-3 hover:underline" href={backHref}>
+	<span class="mr-1.75" aria-hidden="true">←</span>
+	{backLabel}
+</a>
+<header class="mb-12 sm:mb-16">
+	<slot />
+	<Title title={title} />
+	{
+		subtitle && (
+			<p class="font-instrument text-copy mt-5 text-[28px] leading-[1.3] italic">
+				{subtitle}
+			</p>
+		)
+	}
+</header>

@@ -15,8 +15,8 @@ export const contacts = {
 	},
 	bluesky: {
 		name: 'Bluesky',
-		handle: '@matilde.pet',
-		href: 'https://bsky.app/profile/matilde.pet',
+		handle: '@rosymati.com',
+		href: 'https://bsky.app/profile/rosymati.com',
 		color: 'lavender' as AccentColor,
 	},
 	fediverse: {
@@ -39,8 +39,8 @@ export const contacts = {
 	},
 	email: {
 		name: 'Email',
-		handle: 'contact@matilde.pet',
-		href: 'mailto:contact@matilde.pet',
+		handle: 'hello@rosymati.com',
+		href: 'mailto:hello@rosymati.com',
 		color: 'pink' as AccentColor,
 	},
 };
