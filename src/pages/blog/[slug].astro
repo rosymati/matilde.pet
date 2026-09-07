@@ -37,11 +37,14 @@ const { Content } = await render(post);
 			</time>
 		</PageHeader>
 		<div
-			class="prose prose-headings:font-instrument prose-headings:font-normal prose-headings:tracking-tight prose-a:decoration-pigment/40 hover:prose-a:decoration-pigment prose-blockquote:font-instrument prose-blockquote:text-2xl prose-pre:rounded-none prose-pre:border-y prose-pre:border-rule prose-pre:p-5 prose-pre:text-sm prose-pre:leading-relaxed prose-pre:focus-visible:outline-pigment prose-img:mx-auto max-w-none wrap-break-word"
+			class="prose prose-headings:font-instrument prose-headings:font-normal prose-headings:tracking-tight prose-a:decoration-pigment/40 hover:prose-a:decoration-pigment prose-blockquote:font-instrument prose-blockquote:text-2xl prose-pre:rounded-none prose-pre:border-y prose-pre:border-rule prose-pre:p-4 sm:prose-pre:p-5 prose-pre:text-sm prose-pre:leading-relaxed prose-pre:focus-visible:outline-pigment prose-img:mx-auto prose-table:block prose-table:overflow-x-auto max-w-none"
 		>
 			<Content />
 		</div>
-		<section class="border-rule mt-16 border-t pt-8" aria-label="Comments">
+		<section
+			class="border-rule mt-12 border-t pt-6 sm:mt-16 sm:pt-8"
+			aria-label="Comments"
+		>
 			<Comments />
 		</section>
 	</article>

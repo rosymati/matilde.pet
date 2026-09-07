@@ -24,7 +24,7 @@ const posts = (await getCollection('blog')).toSorted(
 			<ul class="border-rule divide-rule divide-y border-y">
 				{posts.map((post) => (
 					<li>
-						<a class="group block py-8" href={`/blog/${post.id}/`}>
+						<a class="group block py-6 sm:py-8" href={`/blog/${post.id}/`}>
 							<time
 								datetime={post.data.pubDate.toISOString()}
 								class="text-muted text-xs"
